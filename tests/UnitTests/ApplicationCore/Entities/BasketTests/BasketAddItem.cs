@@ -1,6 +1,4 @@
-﻿using System;
-using System.Linq;
-using Microsoft.eShopWeb.ApplicationCore.Entities.BasketAggregate;
+﻿using Microsoft.eShopWeb.ApplicationCore.Entities.BasketAggregate;
 using Xunit;
 
 namespace Microsoft.eShopWeb.UnitTests.ApplicationCore.Entities.BasketTests;
@@ -13,7 +11,7 @@ public class BasketAddItem
     private readonly string _buyerId = "Test buyerId";
 
     [Fact]
-    public void AddsBasketItemIfNotPresent()
+    public void Test1()
     {
         var basket = new Basket(_buyerId);
         basket.AddItem(_testCatalogItemId, _testUnitPrice, _testQuantity);
@@ -25,7 +23,7 @@ public class BasketAddItem
     }
 
     [Fact]
-    public void IncrementsQuantityOfItemIfPresent()
+    public void Test2()
     {
         var basket = new Basket(_buyerId);
         basket.AddItem(_testCatalogItemId, _testUnitPrice, _testQuantity);
@@ -36,7 +34,7 @@ public class BasketAddItem
     }
 
     [Fact]
-    public void KeepsOriginalUnitPriceIfMoreItemsAdded()
+    public void Test3()
     {
         var basket = new Basket(_buyerId);
         basket.AddItem(_testCatalogItemId, _testUnitPrice, _testQuantity);
@@ -47,7 +45,7 @@ public class BasketAddItem
     }
 
     [Fact]
-    public void DefaultsToQuantityOfOne()
+    public void Test4()
     {
         var basket = new Basket(_buyerId);
         basket.AddItem(_testCatalogItemId, _testUnitPrice);
@@ -57,7 +55,7 @@ public class BasketAddItem
     }
 
     [Fact]
-    public void CantAddItemWithNegativeQuantity()
+    public void Test5()
     {
         var basket = new Basket(_buyerId);
 
@@ -65,7 +63,7 @@ public class BasketAddItem
     }
 
     [Fact]
-    public void CantModifyQuantityToNegativeNumber()
+    public void Test6()
     {
         var basket = new Basket(_buyerId);
         basket.AddItem(_testCatalogItemId, _testUnitPrice);
